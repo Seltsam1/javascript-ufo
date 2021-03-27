@@ -1,6 +1,6 @@
 # javascript-ufo
 
-Generates a table of data on a website, filters based on user choice
+Generates a table of data on a website, filters based on user input
 
 ## Getting Started
 
