@@ -1,5 +1,7 @@
 # javascript-ufo
 
+Generates a table of data on a website, filters based on user choice
+
 ## Getting Started
 
 This project involvedc using javascript, HTML, CSS, and D3.js
