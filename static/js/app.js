@@ -23,7 +23,7 @@ const ufoSightings = (item) => {
     });
 };
 
-// call function on tableData to populate table
+// call function on tableData to populate table when page loads
 ufoSightings(tableData);
 
 // Form and Button functions with filtering
@@ -47,28 +47,29 @@ function runDate() {
     
     // filter data to match by date entered
     let filteredData = tableData.filter(ufo => ufo.datetime === inputDate)
-    console.log(filateredDat)
+    console.log(filteredData)
 
     // arrow function to populate table
-    const ufoFiltered = (filteredData) => {
+    const ufoFiltered = (item) => {
 
-    // refresh table and remove data
-    tbody.html("");
+        // refresh table and remove data
+        tbody.html("");
 
-    filteredData.forEach(function(ufoRow) {
+        item.forEach(function(ufoRow) {
 
-        // append tr tag to table to add rows
-        let row = tbody.append("tr");
-    
-        // function to loop through keys and values
-        Object.values(ufoRow).forEach(function(values) {
-            // append cells to rows and add text
-            let cell = row.append("td").text(values);
+            // append tr tag to table to add rows
+            let row = tbody.append("tr");
+        
+            // function to loop through keys and values
+            Object.values(ufoRow).forEach(function(values) {
+                // append cells to rows and add text
+                let cell = row.append("td").text(values);
+            });
         });
-    });
+    };
+    ufoFiltered(filteredData)
 };
-    
-};
+
 
 // Event handlers for clicking button or submitting form
 button.on("click", runDate);
