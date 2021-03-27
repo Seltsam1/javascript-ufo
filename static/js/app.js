@@ -20,3 +20,29 @@ const ufoSightings = (item) => {
 
 // call function on tableData to populate table
 tableData.forEach(ufoSightings);
+
+
+// Form and Button functions with filtering by date
+
+// select the button
+let button = d3.select("#filter-btn");
+// select the form
+let form = d3.select("#filter-form");
+
+// event handler function for the form
+function filterDate() {
+
+    //prevent page from refreshing
+    d3.event.preventDefault()
+
+    // select input element
+    let inputElement = d3.select("#datetime");
+
+    // Store date value of input
+    let inputDate = inputElement.property("value");
+    alert(inputDate);
+}
+
+// Event handlers for clicking button or submitting form
+button.on("click", filterDate);
+form.on("submit", filterDate);
