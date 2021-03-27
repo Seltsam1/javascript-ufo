@@ -30,7 +30,7 @@ let button = d3.select("#filter-btn");
 let form = d3.select("#filter-form");
 
 // event handler function for the form
-function filterDate() {
+function runDate() {
 
     //prevent page from refreshing
     d3.event.preventDefault()
@@ -40,9 +40,12 @@ function filterDate() {
 
     // Store date value of input
     let inputDate = inputElement.property("value");
-    alert(inputDate);
+    
+    // filter data to match by date entered
+    let filteredData = tableData.filter(ufo => ufo.datetime === inputDate)
+    console.log(inputDate)
 }
 
 // Event handlers for clicking button or submitting form
-button.on("click", filterDate);
-form.on("submit", filterDate);
+button.on("click", runDate);
+form.on("submit", runDate);
