@@ -4,10 +4,16 @@ let tableData = data;
 // reference table body tag
 let tbody = d3.select("tbody");
 
-// arrow function to loop through tableData
+// arrow function to populate table
 const ufoSightings = (item) => {
+
+    // refresh table and remove data
+    tbody.html("");
+
+    item.forEach(function(ufoRow) {
+
     // append tr tag to table to add rows
-    let row =  tbody.append("tr");
+    let row = tbody.append("tr");
     
     // arrow function to loop through keys and values
     const ufoDetails = ([key, value]) => {
@@ -16,11 +22,11 @@ const ufoSightings = (item) => {
     }
     // call ufoDetails functions for each item entry
     Object.entries(item).forEach(ufoDetails)
+});
 };
 
 // call function on tableData to populate table
-tableData.forEach(ufoSightings);
-
+ufoSightings(tableData);
 
 // Form and Button functions with filtering by date
 
@@ -43,7 +49,8 @@ function runDate() {
     
     // filter data to match by date entered
     let filteredData = tableData.filter(ufo => ufo.datetime === inputDate)
-    console.log(inputDate)
+    console.log(filteredData)
+
 }
 
 // Event handlers for clicking button or submitting form
