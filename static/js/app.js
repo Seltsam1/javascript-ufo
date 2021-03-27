@@ -12,17 +12,15 @@ const ufoSightings = (item) => {
 
     item.forEach(function(ufoRow) {
 
-    // append tr tag to table to add rows
-    let row = tbody.append("tr");
+        // append tr tag to table to add rows
+        let row = tbody.append("tr");
     
-    // arrow function to loop through keys and values
-    const ufoDetails = ([key, value]) => {
-        // append cells to rows and add text
-        let cell = row.append("td").text(value)
-    }
-    // call ufoDetails functions for each item entry
-    Object.entries(item).forEach(ufoDetails)
-});
+        // function to loop through keys and values
+        Object.values(ufoRow).forEach(function(values) {
+            // append cells to rows and add text
+            let cell = row.append("td").text(values);
+        })
+    });
 };
 
 // call function on tableData to populate table
